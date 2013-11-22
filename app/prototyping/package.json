@@ -25,7 +25,8 @@
     "connect-livereload": "~0.1.4",
     "time-grunt": "~0.1.1",
     "grunt-webp": "~0.0.1",
-    "grunt-modernizr": "~0.3.0"
+    "grunt-modernizr": "~0.3.0",
+    "grunt-recess": "~0.4.0"
   },
   "engines": {
     "node": ">=0.8.0"

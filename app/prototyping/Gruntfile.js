@@ -47,6 +47,10 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             },
+            recess: {
+                files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+                tasks: ['recess:dist']
+            },
         },
         
         connect: {
@@ -141,6 +145,20 @@ module.exports = function (grunt) {
                     src: '{,*/}*.coffee',
                     dest: '.tmp/spec',
                     ext: '.js'
+                }]
+            }
+        },
+        recess: {
+            options: {
+                compile: true
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/styles',
+                    src: '{,*/}*.less',
+                    dest: '.tmp/styles/',
+                    ext: '.css'
                 }]
             }
         },
@@ -310,13 +328,15 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'coffee:dist'
+                'coffee:dist',
+                'recess'
             ],
             test: [
                 'coffee'
             ],
             dist: [
                 'coffee',
+                'recess',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
