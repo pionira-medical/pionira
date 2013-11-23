@@ -7,9 +7,7 @@ gem 'rails', '4.0.1'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'less-rails'
 gem 'sass-rails', '~> 4.0.0'
-gem 'therubyracer'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -35,6 +33,7 @@ group :doc do
 end
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'paperclip'
 
 
 # Use ActiveModel has_secure_password

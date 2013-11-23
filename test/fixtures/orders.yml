@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hospital: Krankenhaus
+  department: Empfang
+  street_1: Musterstrasse 1
+  street_2: 2. Gebäude
+  zip: 10999
+  city: Berlin
+  country: Deutschland
+  gender: Herr
+  title: Prof. Dr.
+  first_name: Max
+  last_name: Mustermann
+  email: test@example.org
+  phone: 0123-4567890
+  reference: xyz
+  security_key: abc
+  description: Lorem Ipsum
