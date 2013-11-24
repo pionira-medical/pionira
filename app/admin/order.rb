@@ -9,7 +9,7 @@ ActiveAdmin.register Order do
     default_actions
   end
 
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Order Details" do
       f.input :hospital
       f.input :department
@@ -27,13 +27,18 @@ ActiveAdmin.register Order do
       f.input :reference
       f.input :security_key
     end
+    f.inputs do
+      f.has_many :images do |ff|
+        ff.input :file, :as => :file, :hint => f.template.image_tag(ff.object.file.url(:thumb))
+      end
+    end
     f.actions
   end
 
   controller do
     def permitted_params
-      params.permit order: [:hospital, :department, :street_1, :street_2, :zip, :city, :country,
-        :gender, :title, :first_name, :last_name, :email, :phone, :reference_1, :reference_2, :security_key]
+      params.permit order: [:hospital, :department, :street_1, :street_2, :zip, :city, :country, :gender, :title,
+        :first_name, :last_name, :email, :phone, :reference, :security_key, images_attributes: [:id, :file]]
     end
   end
 end
