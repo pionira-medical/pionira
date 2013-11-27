@@ -1,0 +1,15 @@
+de:
+  error_occured: "Ein Fehler ist aufgetreten"
+  orders:
+    sign_in:
+      welcome: "Hallo Welt"
+      id_label: "Auftragsnummer"
+      id_placeholder: ""
+      id_hint: "Ihre Auftragsnummer erhalten Sie per E-Mail"
+      id_error: "Auftragsnummer nicht gefunden"
+      security_key_label: "Sicherheitsschlüssen"
+      security_key_placeholder: ""
+      security_key_hint: "Sicherheitsschlüssel finden Sie in der Bestellbestätigung"
+      security_key_error: "Sicherheitsschlüssel falsch"
+      submit: "Anmelden"
+

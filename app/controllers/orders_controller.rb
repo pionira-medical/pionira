@@ -4,9 +4,10 @@ class OrdersController < ApplicationController
   	@order_id = nil
   	if Order.exists?(params[:id])
   	  @order_id = params[:id]
-  	  flash.now[:info] = "Enter Security Key"
+  	  flash.now[:info] = t('orders.sign_in.welcome')
   	else
-      flash.now[:danger] = "Order not found"
+  	  flash.now[:danger] = t('error_occured')
+  	  @errors = {id: t('orders.sign_in.id_error')}
   	end
   end
 
