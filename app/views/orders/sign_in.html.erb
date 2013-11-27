@@ -1,0 +1,27 @@
+<div class="row">
+<%= form_tag({controller: 'orders', action: 'authenticate', method: 'post'}, {class: 'form-horizontal', role: 'form'}) do %>
+  <div class="form-group">
+    <%= label_tag(:id, "ID:", class: "col-sm-2 control-label") %>
+    <div class="col-sm-10">
+      <%= text_field_tag(:id, @order_id, class: 'form-control', placeholder: 'order id') %>
+      <span class="help-block">What is the order id</span>
+    </div>
+  </div>
+  <div class="form-group <%= 'has-error' if @errors && @errors[:security_key] %>" >
+    <%= label_tag(:security_key, "Security Key:", class: "col-sm-2 control-label") %>
+    <div class="col-sm-10">
+      <%= password_field_tag(:security_key, nil, class: 'form-control', placeholder: 'security key') %>
+      <% if @errors && @errors[:security_key] %>
+        <span class="help-block"><%= @errors[:security_key] %></span>
+      <% else %>
+        <span class="help-block">What is a security key</span>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= submit_tag("Sign In", class: 'btn btn-default') %>
+    </div>
+  </div>
+<% end %>
+</div>
