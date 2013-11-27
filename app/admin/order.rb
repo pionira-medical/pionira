@@ -9,6 +9,34 @@ ActiveAdmin.register Order do
     default_actions
   end
 
+  show do
+    attributes_table do
+      row :id
+      row :hospital
+      row :department
+      row :street_1
+      row :street_2
+      row :zip
+      row :city
+      row :country, :as => :string
+      row :gender
+      row :title
+      row :first_name
+      row :last_name
+      row :email
+      row :phone
+      row :reference
+      row :security_key
+    end
+    table_for order.images do
+      column "Image" do |i| image_tag(i.file.url(:thumb)) end
+      column "Size" do |i| number_to_human_size(i.file_file_size) end
+      column "Type" do |i| i.file_content_type end
+      column "Created At" do |i| i.created_at end
+    end
+    active_admin_comments
+  end
+
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Order Details" do
       f.input :hospital

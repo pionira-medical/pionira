@@ -3,34 +3,15 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :images
   validates_associated :images
 
+  before_create :generate_security_key
   after_create :send_new_order_mail
-#  after_update :save_images
-
-#  def new_image_attributes=(image_attributes)
-#    image_attributes.each do |attributes|
-#      images.build(attributes)
-#    end
-#  end
-
-#  def existing_image_attributes=(image_attributes)
-#    images.reject(&:new_record?).each do |image|
-#      attributes = image_attributes[image.id.to_s]
-#      if attributes
-#        image.attributes = attributes
-#      else
-#        image.delete(image)
-#      end
-#    end
-#  end 
-
-#  def save_images
-#    images.each do |image|
-#      image.save(false)
-#    end
-#  end
 
   private
   def send_new_order_mail
   	OrderMailer.new_order(self).deliver
+  end
+
+  def generate_security_key
+  	self.security_key = rand(100000..999999)
   end
 end

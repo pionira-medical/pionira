@@ -5,3 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Order.delete_all
+Image.delete_all
+
+16.times do
+  Order.create({
+    :hospital => Faker::Company.name,
+    :department => Faker::Commerce.department,
+    :street_1 => Faker::Address.street_address,
+    :street_2 => Faker::Address.street_suffix,
+    :zip => Faker::Address.zip_code,
+    :city => Faker::Address.city, 
+    :country => "Deutschland",
+    :gender => ["Herr","Frau"][rand(2)],
+    :title => Faker::Name.title,
+    :first_name => Faker::Name.first_name,
+    :last_name => Faker::Name.last_name,
+    :email => Faker::Internet.email,
+    :phone => Faker::PhoneNumber.phone_number
+  })
+end

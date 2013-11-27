@@ -71,6 +71,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    faker (1.2.0)
+      i18n (~> 0.5)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
     has_scope (0.6.0.rc)
@@ -173,6 +175,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   coffee-rails (~> 4.0.0)
+  faker
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
