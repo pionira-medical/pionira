@@ -1,7 +1,7 @@
 Pionira::Application.routes.draw do
   get 'orders/show', to: 'orders#show'
   post 'orders/authenticate', to: 'orders#authenticate'
-  get 'orders/:id', to: 'orders#sign_in'
+  get 'orders(/:id)', to: 'orders#sign_in'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

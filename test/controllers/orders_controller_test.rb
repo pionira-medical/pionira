@@ -4,6 +4,7 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should route to orders sign_in or show" do
     assert_routing '/orders/1', {controller: "orders", action: "sign_in", id: "1"}
+    assert_routing '/orders', {controller: "orders", action: "sign_in"}
     assert_routing '/orders/show', {controller: "orders", action: "show"}
     assert_routing({method: 'post', path: '/orders/authenticate'}, {controller: "orders", action: "authenticate"})
   end
@@ -11,13 +12,13 @@ class OrdersControllerTest < ActionController::TestCase
   test "should display sign_in page" do
     get :sign_in, id: orders(:one).id 
     assert_response :success
-    assert @response.body.include?("Enter Security Key")
+    assert @response.body.include?(I18n.t('orders.sign_in.welcome'))
   end
 
   test "should display sign_in error (wrong id)" do
     get :sign_in, id: "does_not_exist"
     assert_response :success
-    assert @response.body.include?("Order not found")
+    assert @response.body.include?(I18n.t('orders.sign_in.id_error'))
   end
 
   test "should redirect to order after successfully signed in" do
@@ -28,7 +29,7 @@ class OrdersControllerTest < ActionController::TestCase
   test "should display form after failing to sign_in" do
     post :authenticate, id: orders(:one).id, security_key: "a_wrong_key"
     assert_response :success
-    assert @response.body.include?("wrong key")
+    assert @response.body.include?(I18n.t('orders.authenticate.security_key_not_valid'))
   end
 
   test "should display the order" do

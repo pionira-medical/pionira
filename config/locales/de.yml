@@ -7,9 +7,13 @@ de:
       id_placeholder: ""
       id_hint: "Ihre Auftragsnummer erhalten Sie per E-Mail"
       id_error: "Auftragsnummer nicht gefunden"
-      security_key_label: "Sicherheitsschlüssen"
+      security_key_label: "Sicherheitsschlüssel"
       security_key_placeholder: ""
       security_key_hint: "Sicherheitsschlüssel finden Sie in der Bestellbestätigung"
       security_key_error: "Sicherheitsschlüssel falsch"
       submit: "Anmelden"
+    authenticate:
+      signed_in: "Erfolgreich angemeldet"
+      security_key_not_valid: "Sicherheitsschlüssel falsch"
+      session_not_valid: "Auftrag nicht mehr verfügbar"
 
