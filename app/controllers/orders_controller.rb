@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
 
   def sign_in
-  	@order_id = nil
   	if params[:id].blank? || Order.exists?(params[:id])
   	  @order_id = params[:id]
   	  flash.now[:info] = t('orders.sign_in.welcome')
@@ -26,5 +25,17 @@ class OrdersController < ApplicationController
   	  @errors = {security_key: t('orders.authenticate.security_key_not_valid')}
       render template: "orders/sign_in"
   	end
+  end
+
+  def request_security_key
+    @order = Order.find_by(id: params[:id])
+    if @order
+      OrderMailer.request_security_key(@order).deliver
+      @order_id = @order.id
+      flash.now[:success] = t('orders.sign_in.request_security_key_send')
+    else
+      flash.now[:danger] = t('orders.sign_in.request_security_key_failed')
+    end
+    render template: "orders/sign_in"
   end
 end

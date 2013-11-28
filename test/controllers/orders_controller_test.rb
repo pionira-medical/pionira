@@ -9,15 +9,14 @@ class OrdersControllerTest < ActionController::TestCase
     assert_routing({method: 'post', path: '/orders/authenticate'}, {controller: "orders", action: "authenticate"})
   end
 
-  test "should display sign_in page" do
-    get :sign_in, id: orders(:one).id 
-    assert_response :success
+  test "should display sign_in page in success and error cases" do
+    get :sign_in, id: orders(:one).id
     assert @response.body.include?(I18n.t('orders.sign_in.welcome'))
-  end
 
-  test "should display sign_in error (wrong id)" do
+    get :sign_in
+    assert @response.body.include?(I18n.t('orders.sign_in.welcome'))
+
     get :sign_in, id: "does_not_exist"
-    assert_response :success
     assert @response.body.include?(I18n.t('orders.sign_in.id_error'))
   end
 
@@ -39,5 +38,16 @@ class OrdersControllerTest < ActionController::TestCase
   test "should redirect to sign in page if the stored order is not valid" do
     get :show, {}, {order_id: orders(:one).id, order_security_key: "a wrong key"}
     assert_redirected_to(controller: :orders, action: :sign_in, :id => orders(:one).id)
+  end
+
+  test "successfully requesting the security key" do
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      post :request_security_key, id: orders(:one).id
+    end
+    email = ActionMailer::Base.deliveries.last
+ 
+    assert_equal "Sicherheitsschlüssel", email.subject
+    assert_equal orders(:one).email, email.to[0]
+    assert email.body.include?(orders(:one).security_key)
   end
 end
