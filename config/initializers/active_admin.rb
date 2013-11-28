@@ -1,5 +1,9 @@
 ActiveAdmin.setup do |config|
+  config.clear_stylesheets!
+  config.register_stylesheet 'active_admin/active_admin.css'
 
+  config.clear_javascripts!
+  config.register_javascript 'active_admin/active_admin.js'
   # == Site Title
   #
   # Set the title that is displayed on the main layout
