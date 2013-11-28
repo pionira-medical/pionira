@@ -25,7 +25,7 @@
 
 <div class="modal fade" id="modal">
   <div class="modal-dialog">
-    <%= form_tag({controller: 'orders', action: 'authenticate'}, {method: 'post', class: 'modal-content form-horizontal', role: 'form'}) do %>
+    <%= form_tag({controller: 'orders', action: 'request_security_key'}, {method: 'post', class: 'modal-content form-horizontal', role: 'form'}) do %>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Sicherheitsschlüssel neu anfordern</h4>

@@ -49,5 +49,13 @@ class OrdersControllerTest < ActionController::TestCase
     assert_equal "Sicherheitsschlüssel", email.subject
     assert_equal orders(:one).email, email.to[0]
     assert email.body.include?(orders(:one).security_key)
+    assert @response.body.include?(I18n.t('orders.request_security_key.send'))
+  end
+
+  test "trying to request the security key with a wrong id" do
+    assert_difference 'ActionMailer::Base.deliveries.size', 0 do
+      post :request_security_key, id: "wrong_id"
+    end
+    assert @response.body.include?(I18n.t('orders.request_security_key.failed'))
   end
 end

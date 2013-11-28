@@ -32,9 +32,9 @@ class OrdersController < ApplicationController
     if @order
       OrderMailer.request_security_key(@order).deliver
       @order_id = @order.id
-      flash.now[:success] = t('orders.sign_in.request_security_key_send')
+      flash.now[:success] = t('orders.request_security_key.send')
     else
-      flash.now[:danger] = t('orders.sign_in.request_security_key_failed')
+      flash.now[:danger] = t('orders.request_security_key.failed')
     end
     render template: "orders/sign_in"
   end

@@ -16,3 +16,6 @@ de:
       signed_in: "Erfolgreich angemeldet"
       security_key_not_valid: "Sicherheitsschlüssel falsch"
       session_not_valid: "Auftrag nicht mehr verfügbar"
+    request_security_key:
+      send: "Ihnen wurde der Sicherheitsschlüssel zugesandt."
+      failed: "Auftrag nicht gefunden, wir konnten Ihnen keinen Sicherheitsschlüssel zusenden"
