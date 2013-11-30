@@ -1,27 +1,19 @@
-<%= form_tag({controller: 'orders', action: 'authenticate'}, {method: 'post', class: 'form-horizontal col-sm-8', role: 'form'}) do %>
+<%= form_tag({controller: 'orders', action: 'authenticate'}, {method: 'post', class: 'col-sm-6', role: 'form'}) do %>
   <div class="form-group <%= 'has-error' if @errors && @errors[:id] %>">
-    <%= label_tag(:id, t('orders.sign_in.id_label'), class: "col-sm-4 control-label") %>
-    <div class="col-sm-8">
-      <%= text_field_tag(:id, @order_id, class: 'form-control', placeholder: t('orders.sign_in.id_placeholder')) %>
-        <span class="help-block"><%= help_text_for_sign_in_field(:id) %></span>
-    </div>
+    <%= label_tag(:id, t('orders.sign_in.id_label'), class: "control-label") %>
+    <%= text_field_tag(:id, @order_id, class: 'form-control', placeholder: t('orders.sign_in.id_placeholder')) %>
+    <span class="help-block"><%= help_text_for_sign_in_field(:id) %></span>
   </div>
   <div class="form-group <%= 'has-error' if @errors && @errors[:security_key] %>" >
-    <%= label_tag(:security_key, t('orders.sign_in.security_key_label'), class: "col-sm-4 control-label") %>
-    <div class="col-sm-8">
-      <%= password_field_tag(:security_key, nil, class: 'form-control', placeholder: t('orders.sign_in.security_key_placeholder')) %>
-        <span class="help-block"><%= help_text_for_sign_in_field(:security_key) %></span>
-    </div>
+    <%= label_tag(:security_key, t('orders.sign_in.security_key_label'), class: "control-label") %>
+    <button style="float:right" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal">Passwort vergessen?</button>
+    <%= password_field_tag(:security_key, nil, class: 'form-control', placeholder: t('orders.sign_in.security_key_placeholder')) %>
+    <span class="help-block"><%= help_text_for_sign_in_field(:security_key) %></span>
   </div>
   <div class="form-group">
-    <div class="col-sm-12">
-      <%= submit_tag(t('orders.sign_in.submit'), class: 'btn btn-primary btn-lg btn-block') %>
-    </div>
+    <%= submit_tag(t('orders.sign_in.submit'), class: 'btn btn-primary btn-lg btn-block') %>
   </div>
-<% end %>
-<div class="col-sm-12">
-  <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal">Passwort vergessen?</button>
-</div> 
+<% end %> 
 
 <div class="modal fade" id="modal">
   <div class="modal-dialog">
