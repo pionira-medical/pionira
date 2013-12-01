@@ -20,3 +20,6 @@ de:
     request_security_key:
       send: "Ihnen wurde der Sicherheitsschlüssel zugesandt."
       failed: "Auftrag nicht gefunden, wir konnten Ihnen keinen Sicherheitsschlüssel zusenden"
+  time:
+    formats:
+      long: "%d.%m.%Y"

@@ -1,11 +1,47 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html,body{height:100%;}
 
+body {
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 187px, #a8bfed 188px, #0e8ef7 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(187px,#f1f1f1), color-stop(188px,#a8bfed), color-stop(100%,#0e8ef7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 187px,#a8bfed 188px,#0e8ef7 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ffffff 0%,#f1f1f1 187px,#a8bfed 188px,#0e8ef7 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ffffff 0%,#f1f1f1 187px,#a8bfed 188px,#0e8ef7 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 187px,#a8bfed 188px,#0e8ef7 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#0e8ef7',GradientType=0 ); /* IE6-9 */
 
+}
+
+header {
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+#content {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid green;
+  min-height: 300px;
+
+  form > h3, .col-sm-6 > h3 {
+    border-bottom: 1px solid grey
+  }
+}
+.popover {
+  top: 57px !important;
+  left: 210px !important;
+  display: block !important;
+  width: 50% !important;
+}
 .fileinput-button {
   position: relative;
   overflow: hidden;
+  width: 170px;
+  height: 110px;
+  line-height: 100px !important;
 }
 .fileinput-button input {
   position: absolute;

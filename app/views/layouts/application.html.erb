@@ -9,7 +9,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+<header>
+  <div class="container">
+    <img src="http://placehold.it/200x100" class="img-thumbnail img-responsive" alt="Responsive image">
+  </div>
+</header>
+<div id="content" class="container">
   <% flash.each do |type, message| %>
     <div class="alert alert-<%= type %>"><%= message %></div>
   <% end %>

@@ -1,11 +1,11 @@
 module OrdersHelper
 
-  def session_has_no_order_info
-    return session[:order_id].blank? || session[:order_security_key].blank?
+  def session_has_order_info
+    return !session[:order_id].blank? && !session[:order_security_key].blank?
   end
 
-  def params_matches_not_with_session_order_info
-  	return session[:order_id] != params[:id]
+  def params_matches_with_session_order_info
+  	return session[:order_id].to_i == params[:id].to_i
   end
 
   def help_text_for_sign_in_field(field)

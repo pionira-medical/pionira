@@ -1,6 +1,7 @@
 Pionira::Application.routes.draw do
-  get 'orders(/sign_in(/:id))', to: 'orders#sign_in'
-  get 'orders/:id', to: 'orders#show'
+  get 'orders', to: 'orders#sign_in', constraints: {id: /[0-9]*/}
+  get 'orders/:id/sign_in', to: 'orders#sign_in', constraints: {id: /[0-9]*/}
+  get 'orders/:id', to: 'orders#show', constraints: {id: /[0-9]*/}
   post 'orders/authenticate', to: 'orders#authenticate'
   post 'orders/request_security_key', to: 'orders#request_security_key'
 
