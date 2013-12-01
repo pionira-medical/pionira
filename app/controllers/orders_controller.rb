@@ -1,20 +1,29 @@
 class OrdersController < ApplicationController
   include OrdersHelper
-  before_filter :redirect_if_not_authenticated, only: [:show]
+  before_filter :redirect_if_not_authenticated, only: [:show, :update]
   before_filter :redirect_if_authenticated, only: [:sign_in]
-  
-  def sign_in
-  	if params[:id].blank? || Order.exists?(params[:id])
-  	  @order_id = params[:id]
-  	  flash.now[:info] = t('orders.sign_in.welcome')
-  	else
-  	  flash.now[:danger] = t('error_occured')
-  	  @errors = {id: t('orders.sign_in.id_error')}
-  	end
+
+  def index
+    if params[:id].blank? || Order.exists?(params[:id])
+      @order_id = params[:id]
+      flash.now[:info] = t('orders.sign_in.welcome')
+    else
+      flash.now[:danger] = t('error_occured')
+      @errors = {id: t('orders.sign_in.id_error')}
+    end
   end
 
   def show
   	@order = Order.find_by(id: session[:order_id], security_key: session[:order_security_key])
+  end
+
+  def update
+    @order = Order.find_by(id: session[:order_id], security_key: session[:order_security_key])
+    @order.update(order_params)
+  end
+
+  def sign_in
+    render action: :index
   end
 
   def authenticate
@@ -60,4 +69,8 @@ class OrdersController < ApplicationController
       redirect_to({ action: :show, id: params[:id] })
     end
   end
+
+  def order_params
+      params.require(:order).permit(:reference, :phone, :email)
+    end
 end

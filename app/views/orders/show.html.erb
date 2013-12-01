@@ -9,67 +9,8 @@
     <div class="popover fade right in"><div class="arrow" style=""></div><h3 class="popover-title">A Title</h3><div class="popover-content">And here's some amazing content. It's very engaging. right?</div></div>
   </div>
 <% end %>
-<div class="col-sm-6">
-  <h3>Auftragsübersicht</h3>
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        Ihr Auftrag vom <%= @order.created_at %>
-        <button style="float:right" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal">bearbeiten</button>
-      </h3>
-    </div>
-    <div class="panel-body">
-    <div class="form-group ">
-      <label class="control-label" for="id">Auftragsnummer</label>
-      <span class="form-control"><%= @order.id %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Ihre Referenznummer</label>
-      <span class="form-control"><%= @order.reference %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Ansprechpartner</label>
-      <span class="form-control"><%= @order.gender %> <%= @order.title %> <%= @order.first_name %> <%= @order.last_name %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Telefon:</label>
-      <span class="form-control"><%= @order.phone %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">E-Mail:</label>
-      <span class="form-control"><%= @order.email %></span>
-    </div>
-  </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        Adresse
-        <button style="float:right" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal">bearbeiten</button>
-      </h3>
-    </div>
-    <div class="panel-body">
-    <div class="form-group ">
-      <label class="control-label" for="id">Krankenhaus</label>
-      <span class="form-control"><%= @order.hospital %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Name</label>
-      <span class="form-control"><%= @order.gender %> <%= @order.title %> <%= @order.first_name %> <%= @order.last_name %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Abteilung</label>
-      <span class="form-control"><%= @order.department %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Straße</label>
-      <span class="form-control"><%= @order.street_1 %>, <%= @order.street_2 %></span>
-    </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">PLZ, Ort</label>
-      <span class="form-control"><%= @order.zip %>, <%= @order.city %></span>
-    </div>
-  </div>
+<div class="col-sm-6" id="orderDetails">
+  <%= render partial: "orders/show/details" %>  
 </div>
-
+<%= render partial: "orders/show/form" %>
 <%= javascript_include_tag "upload/app", "data-turbolinks-track" => true %>

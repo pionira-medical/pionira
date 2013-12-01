@@ -70,4 +70,9 @@ class OrdersControllerTest < ActionController::TestCase
     end
     assert @response.body.include?(I18n.t('orders.request_security_key.failed'))
   end
+
+  test "successfully update an order" do
+    post :update, id: orders(:one).id
+    
+  end
 end

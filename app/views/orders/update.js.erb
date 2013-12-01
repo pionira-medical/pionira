@@ -1,0 +1,10 @@
+<% if @order.errors.any? -%>
+  <% @order.errors.each do |error| %>
+    $("#order_email").parents(".form-group").addClass("has-error");
+    $("#order_email").next().text("<%= t("orders.sign_in.email_error") %>");
+  <% end %> 
+<% else -%>
+  $('#orderForm').modal('hide').on('hidden.bs.modal', function() {
+	$("#orderDetails").html("<%= escape_javascript( render(:partial => "orders/show/details") ) %>")
+  });
+<% end -%>
