@@ -1,16 +1,39 @@
-<%= form_tag({}, {method: 'post', class: 'form-horizontal col-sm-6', role: 'form'}) do %>
+<div class="col-sm-6">
   <h3>Datencenter</h3>
-  <div class="">
-    <span class="btn btn-success fileinput-button">
-      <i class="glyphicon glyphicon-plus"></i>
-      <span>Dateien auswählen</span>
-      <input type="file" name="files[]" multiple="">
-    </span>
-    <div class="popover fade right in"><div class="arrow" style=""></div><h3 class="popover-title">A Title</h3><div class="popover-content">And here's some amazing content. It's very engaging. right?</div></div>
+  <div id="uploader"></div>
+    
+  <div class="popover fade right in">
+    <div class="arrow" style=""></div>
+    <h3 class="popover-title">A Title</h3>
+    <div class="popover-content">And here's some amazing content. It's very engaging. right?</div>
   </div>
-<% end %>
+</div>
 <div class="col-sm-6" id="orderDetails">
   <%= render partial: "orders/show/details" %>  
 </div>
 <%= render partial: "orders/show/form" %>
-<%= javascript_include_tag "upload/app", "data-turbolinks-track" => true %>
+
+
+
+<script type="text/template" id="qq-template-bootstrap">
+  <div class="qq-uploader-selector qq-uploader span12">
+    <span class="btn btn-success qq-upload-button-selector qq-upload-button">
+      <i class="glyphicon glyphicon-plus"></i>
+      <span>Dateien auswählen</span>
+    </span>
+    <ul class="qq-upload-list-selector qq-upload-list" style="margin-top: 10px; text-align: center;">
+      <li>
+        <div class="qq-progress-bar-container-selector">
+          <div class="qq-progress-bar-selector qq-progress-bar"></div>
+        </div>
+        <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+        <span class="qq-upload-file-selector qq-upload-file"></span>
+        <span class="qq-upload-size-selector qq-upload-size"></span>
+        <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
+        <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<%= javascript_include_tag "fineuploader/app", "data-turbolinks-track" => true %>

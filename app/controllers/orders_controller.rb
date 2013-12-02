@@ -52,25 +52,7 @@ class OrdersController < ApplicationController
   end
 
   private
-  def redirect_if_not_authenticated
-    if !session_has_order_info
-      redirect_to({ action: :sign_in, id: params[:id] })
-    elsif !params_matches_with_session_order_info
-      redirect_to({ action: :sign_in, id: params[:id] }, { warn: t('orders.authenticate.only_one_session_allowed') })
-    elsif !Order.exists?(id: session[:order_id], security_key: session[:order_security_key])
-      session[:order_id] = nil
-      session[:order_security_key] = nil
-      redirect_to({ action: :sign_in}, { danger: t('orders.authenticate.session_not_valid') })
-    end
-  end
-
-  def redirect_if_authenticated
-    if session_has_order_info && params_matches_with_session_order_info
-      redirect_to({ action: :show, id: params[:id] })
-    end
-  end
-
   def order_params
-      params.require(:order).permit(:reference, :phone, :email)
-    end
+    params.require(:order).permit(:reference, :phone, :email)
+  end
 end

@@ -36,25 +36,13 @@ header {
   display: block !important;
   width: 50% !important;
 }
-.fileinput-button {
+.qq-upload-button {
   position: relative;
   overflow: hidden;
   width: 170px;
   height: 110px;
   line-height: 100px !important;
 }
-.fileinput-button input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  opacity: 0;
-  -ms-filter: 'alpha(opacity=0)';
-  font-size: 200px;
-  direction: ltr;
-  cursor: pointer;
-}
-
 /* Fixes for IE < 8 */
 @media screen\9 {
   .fileinput-button input {
