@@ -4,7 +4,7 @@ function createUploader() {
     var uploader = new qq.FineUploader({
         element: document.getElementById('uploader'),
         request: {
-            endpoint: '/orders/2/images',
+            endpoint: '/orders/'+$('#order_id').val()+'/images',
             params: {
 	            authenticity_token: $('meta[name=csrf-token]').attr('content')
         	}
