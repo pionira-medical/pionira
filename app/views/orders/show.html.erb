@@ -4,9 +4,37 @@
     
   <div class="popover fade right in">
     <div class="arrow" style=""></div>
-    <h3 class="popover-title">A Title</h3>
-    <div class="popover-content">And here's some amazing content. It's very engaging. right?</div>
+    <h3 class="popover-title"><span class="label label-success">Tipp:</span> Mehrfachauswahl</h3>
+    <div class="popover-content">Laden Sie alle Dateien Ihre Dateien hoch indem Sie in der Ordneransicht ihre Dateien auswählen.</div>
   </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Vorhandene Dateien
+      <button style="float:right" type="button" class="btn btn-danger btn-xs">Alle Dateien löschen?</button>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Dateiname</th>
+        <th>Format</th>
+        <th>Größe</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @order.images.each_with_index do |image, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= image.file_file_name %></td>
+            <td><%= image.file_content_type %></td>
+            <td><%= number_to_human_size(image.file_file_size) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <input type="hidden" value="<%= @order.id %>" id="order_id" />
 </div>
 <div class="col-sm-6" id="orderDetails">
   <%= render partial: "orders/show/details" %>  
