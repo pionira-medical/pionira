@@ -1,13 +1,27 @@
-New order from pionira-medical.com
-===============================================
+Sehr <%= @order.gender == 'Herr' ? 'geehrter' : 'geehrte' %> <%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 
-Address:
+Ihren Auftrag für eine nBoneForm bei Pionira-Medical haben wir erfolgreich angelegt.
+Für die Übertragung der Patientendaten melden Sie sich mit dem Sicherheitsschlüssel "<%= @order.security_key %>" auf <%= sign_in_order_url(@order) %> an.
+
+# Ihr Zugang        #
+#####################
+Auftragsübersicht: <%= sign_in_order_url(@order) %>
+Sicherheitsschlüssel: <%= @order.security_key %>
+
+# Auftragsübersicht #
+#####################
+Auftragsnummer: <%= @order.id %>
+Behandelnder Arzt: <%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
+E-Mail Adresse: <%= @order.email %>
+Telefon: <%= @order.phone %>
+Ihre Referenz: <%= @order.reference %>
+
+# Lieferadresse     #
+#####################
 <%= @order.hospital %>
-<%= @order.gender %> <%= @order.title %> <%= @order.last_name %>
+<%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 <%= @order.department %>
 <%= @order.street_1 %>
 <%= @order.street_2 %>
 <%= @order.zip %> <%= @order.city %>
-<%= @order.city %>
- 
-Thanks for joining and have a great day!
+<%= @order.country %>

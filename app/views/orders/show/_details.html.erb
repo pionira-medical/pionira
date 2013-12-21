@@ -7,24 +7,28 @@
     </h3>
   </div>
   <div class="panel-body">
-    <div class="form-group ">
-      <label class="control-label" for="id">Auftragsnummer</label>
+    <div class="form-group">
+      <label class="control-label">Auftragsnummer</label>
       <span class="form-control"><%= @order.id %></span>
     </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Ihre Referenznummer</label>
+    <div class="form-group">
+      <label class="control-label">Ihre Referenznummer</label>
       <span class="form-control"><%= @order.reference %></span>
     </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Ansprechpartner</label>
-      <span class="form-control"><%= @order.gender %> <%= @order.title %> <%= @order.first_name %> <%= @order.last_name %></span>
+    <div class="form-group">
+      <label class="control-label">Liefertermin</label>
+      <span class="form-control"><%= @order.delivered_at %></span>
     </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">Telefon:</label>
+    <div class="form-group">
+      <label class="control-label">Ansprechpartner</label>
+      <span class="form-control"><%= @order.gender %> <%= @order.dr_title %> <%= @order.first_name %> <%= @order.last_name %></span>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Telefon:</label>
       <span class="form-control"><%= @order.phone %></span>
     </div>
-    <div class="form-group ">
-      <label class="control-label" for="id">E-Mail:</label>
+    <div class="form-group">
+      <label class="control-label">E-Mail:</label>
       <span class="form-control"><%= @order.email %></span>
     </div>
   </div>
@@ -32,28 +36,28 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Adresse
+      Lieferadresse
       <button style="float:right" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#orderForm">bearbeiten</button>
     </h3>
   </div>
   <div class="panel-body">
-    <div class="form-group ">
+    <div class="form-group">
       <label class="control-label" for="id">Krankenhaus</label>
       <span class="form-control"><%= @order.hospital %></span>
     </div>
-    <div class="form-group ">
+    <div class="form-group">
       <label class="control-label" for="id">Name</label>
-      <span class="form-control"><%= @order.gender %> <%= @order.title %> <%= @order.first_name %> <%= @order.last_name %></span>
+      <span class="form-control"><%= @order.gender %> <%= @order.dr_title %> <%= @order.first_name %> <%= @order.last_name %></span>
     </div>
-    <div class="form-group ">
+    <div class="form-group">
       <label class="control-label" for="id">Abteilung</label>
       <span class="form-control"><%= @order.department %></span>
     </div>
-    <div class="form-group ">
+    <div class="form-group">
       <label class="control-label" for="id">Straße</label>
       <span class="form-control"><%= @order.street_1 %>, <%= @order.street_2 %></span>
     </div>
-    <div class="form-group ">
+    <div class="form-group">
       <label class="control-label" for="id">PLZ, Ort</label>
       <span class="form-control"><%= @order.zip %>, <%= @order.city %></span>
     </div>

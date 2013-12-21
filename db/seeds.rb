@@ -18,7 +18,7 @@ Image.delete_all
     :city => Faker::Address.city, 
     :country => "Deutschland",
     :gender => ["Herr","Frau"][rand(2)],
-    :title => Faker::Name.title,
+    :dr_title => ['Dr.', 'Dr. Prof.', 'Dr. Med.'].shuffle.first,
     :first_name => Faker::Name.first_name,
     :last_name => Faker::Name.last_name,
     :email => Faker::Internet.email,

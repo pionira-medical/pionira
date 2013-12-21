@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Recent Orders" do
+        panel "Die Neusten Aufträge" do
           ul do
             Order.last(5).map do |order|
               li link_to("#{order.hospital}, #{order.city}", admin_order_path(order))

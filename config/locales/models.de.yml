@@ -1,0 +1,19 @@
+de:
+  activerecord:
+    models:
+      order: Aufträge
+    attributes:
+      order:
+        id: Nummer
+        hospital: Krankenhaus
+        department: Abteilung
+        street_1: Straße
+        street_2: Zusatz
+        zip: PLZ
+        city: Stadt
+        delivered_at: Auzuliefern am
+        created_at: Erstellt am
+
+  errors:
+    messages:
+      blank: Feld muss ausgefüllt sein
