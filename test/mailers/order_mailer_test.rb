@@ -11,6 +11,7 @@ class OrderMailerTest < ActionMailer::TestCase
     assert_equal ['test@example.org'], email.to
     assert_equal 'Ihr Auftrag bei Pionira-Medical', email.subject
     assert email.body.to_s.include?("Auftragsnummer: #{orders(:one).id}")
+    puts email.body.to_s
   end
 
   test "request_security_key" do

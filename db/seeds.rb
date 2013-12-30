@@ -5,9 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+AdminUser.delete_all
 Order.delete_all
 Image.delete_all
 
+AdminUser.create!({
+  email: 'admin@example.com',
+  password: 'password',
+  password_confirmation: 'password'
+})
 16.times do
   Order.create({
     :hospital => Faker::Company.name,

@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  hospital: Krankenhaus
-  department: Empfang
+  hospital: St. Marien Hospital
+  department: Chirugie
   street_1: Musterstrasse 1
-  street_2: 2. Gebäude
+  street_2: 2. Seitenflügel
   zip: 10999
   city: Berlin
   country: Deutschland
   gender: Herr
-  title: Prof. Dr.
+  dr_title: Prof. Dr.
   first_name: Max
   last_name: Mustermann
   email: test@example.org

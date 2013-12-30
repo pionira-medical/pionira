@@ -2,7 +2,6 @@ de:
   error_occured: "Ein Fehler ist aufgetreten"
   orders:
     sign_in:
-      welcome: "Hallo Welt"
       id_label: "Auftragsnummer"
       id_placeholder: ""
       id_hint: "Ihre Auftragsnummer erhalten Sie per E-Mail"

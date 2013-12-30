@@ -1,26 +1,28 @@
 Sehr <%= @order.gender == 'Herr' ? 'geehrter' : 'geehrte' %> <%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 
-Ihren Auftrag für eine nBoneForm bei Pionira-Medical haben wir erfolgreich angelegt.
-Für die Übertragung der Patientendaten melden Sie sich mit dem Sicherheitsschlüssel "<%= @order.security_key %>" auf <%= sign_in_order_url(@order) %> an.
+Ihren Auftrag für eine BoneForm bei Pionira-Medical haben wir erfolgreich angelegt.
+Für die Übertragung der Patientendaten melden Sie sich mit dem Sicherheitsschlüssel auf unserer Auftragsseite an.
 
-# Ihr Zugang        #
-#####################
-Auftragsübersicht: <%= sign_in_order_url(@order) %>
++ Ihre Auftragsseite
+---------------------
+Adresse: <%= sign_in_order_url(@order) %>
 Sicherheitsschlüssel: <%= @order.security_key %>
 
-# Auftragsübersicht #
-#####################
+
++ Auftragsübersicht
+---------------------
 Auftragsnummer: <%= @order.id %>
 Behandelnder Arzt: <%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 E-Mail Adresse: <%= @order.email %>
 Telefon: <%= @order.phone %>
-Ihre Referenz: <%= @order.reference %>
+Referenznummer: <%= @order.reference %>
 
-# Lieferadresse     #
-#####################
+
++ Lieferadresse
+---------------------
 <%= @order.hospital %>
-<%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 <%= @order.department %>
+<%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 <%= @order.street_1 %>
 <%= @order.street_2 %>
 <%= @order.zip %> <%= @order.city %>
