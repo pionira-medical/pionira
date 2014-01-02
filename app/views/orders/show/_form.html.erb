@@ -6,11 +6,28 @@
         <h4 class="modal-title">Auftrag bearbeiten</h4>
       </div>
       <div class="modal-body" style="padding-bottom: 0px;">
-        <div class="form-group">
-          <%= f.label(:reference, t('orders.sign_in.reference_label'), class: "col-sm-4 control-label") %>
+        <div class="form-group">  
+          <%= f.label(:first_name, t('orders.sign_in.gender_label'), class: "col-sm-4 control-label") %>
           <div class="col-sm-8">
-            <%= f.text_field(:reference, class: 'form-control', placeholder: t('orders.sign_in.reference_placeholder')) %>
-            <span class="help-block"><%= t('orders.sign_in.reference_hint') %></span>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox1" value="option1"> Herr
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox2" value="option2"> Frau
+            </label>
+            <%= f.text_field(:title, class: 'form-control', placeholder: t('orders.sign_in.title_placeholder')) %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label(:first_name, t('orders.sign_in.first_name_label'), class: "col-sm-4 control-label") %>
+          <div class="col-sm-8">
+            <%= f.text_field(:first_name, class: 'form-control', placeholder: t('orders.sign_in.first_name_placeholder')) %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label(:last_name, t('orders.sign_in.last_name_label'), class: "col-sm-4 control-label") %>
+          <div class="col-sm-8">
+            <%= f.text_field(:last_name, class: 'form-control', placeholder: t('orders.sign_in.last_name_placeholder')) %>
           </div>
         </div>
         <div class="form-group">
@@ -25,6 +42,13 @@
           <div class="col-sm-8">
             <%= f.text_field(:email, class: 'form-control', placeholder: t('orders.sign_in.email_placeholder')) %>
             <span class="help-block"><%= t('orders.sign_in.email_hint') %></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label(:reference, t('orders.sign_in.reference_label'), class: "col-sm-4 control-label") %>
+          <div class="col-sm-8">
+            <%= f.text_field(:reference, class: 'form-control', placeholder: t('orders.sign_in.reference_placeholder')) %>
+            <span class="help-block"><%= t('orders.sign_in.reference_hint') %></span>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   def index
     if params[:id].blank? || Order.exists?(params[:id])
       @order_id = params[:id]
-      flash.now[:info] = t('orders.sign_in.welcome')
     else
       flash.now[:danger] = t('error_occured')
       @errors = {id: t('orders.sign_in.id_error')}
@@ -35,7 +34,7 @@ class OrdersController < ApplicationController
   	else
   	  @order_id = params[:id]
   	  @errors = {security_key: t('orders.authenticate.security_key_not_valid')}
-      render template: "orders/sign_in"
+      render template: "orders/index"
   	end
   end
 
@@ -48,7 +47,7 @@ class OrdersController < ApplicationController
     else
       flash.now[:danger] = t('orders.request_security_key.failed')
     end
-    render template: "orders/sign_in"
+    render template: "orders/index"
   end
 
   private

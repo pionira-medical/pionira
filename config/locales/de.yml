@@ -21,6 +21,13 @@ de:
       email_placeholder: "max@mustermann.de"
       email_hint: "Ihre E-Mail Adresse unter der Sie erreichbar sind"
       email_error: "E-Mail Adresse nicht gültig"
+      first_name_label: "Vorname"
+      first_name_placeholder: "Max"
+      last_name_label: "Nachname"
+      last_name_placeholder: "Mustermann"
+      gender_label: "Anrede / Titel"
+      title_label: ""
+      title_placeholder: "Dr. Prof."
       submit: "Anmelden"
     authenticate:
       signed_in: "Erfolgreich angemeldet"

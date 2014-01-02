@@ -8,7 +8,23 @@
     <div class="popover-content">Laden Sie alle Dateien Ihre Dateien hoch indem Sie in der Ordneransicht ihre Dateien auswählen.</div>
   </div>
 
-  <div class="panel panel-default">
+  <div class="modal fade" id="uploadComplete">
+  <div class="modal-dialog">
+    <%= form_for(@order,remote: true, html: {class: 'modal-content form-horizontal', role: 'form'}) do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Vorgang abgeschlossen. <small>Wie möchten Sie fortfahren?</small></h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary col-sm-5" data-dismiss="modal">Weitere Dateien hochladen</button>
+        <button type="button" class="btn btn-success col-sm-5 col-md-offset-2" data-dismiss="modal">Herstellungsprozess starten</button>
+        <div class="clearfix"></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <div id="images" class="panel panel-default">
     <div class="panel-heading">
       Vorhandene Dateien
       <button style="float:right" type="button" class="btn btn-danger btn-xs">Alle Dateien löschen?</button>
@@ -40,8 +56,6 @@
   <%= render partial: "orders/show/details" %>  
 </div>
 <%= render partial: "orders/show/form" %>
-
-
 
 <script type="text/template" id="qq-template-bootstrap">
   <div class="qq-uploader-selector qq-uploader span12">
