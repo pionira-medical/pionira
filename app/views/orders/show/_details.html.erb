@@ -2,7 +2,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Ihr Auftrag vom <%= @order.created_at %>
+      Ihr Auftrag vom <%= l(@order.created_at, format: :long) %>
       <button style="float:right" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#orderForm">bearbeiten</button>
     </h3>
   </div>

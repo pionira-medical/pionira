@@ -4,7 +4,7 @@
 html,body{height:100%;}
 
 body {
-  background-color: #1790BD;
+  background-color: #ffffff;
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 187px, #74B3D9 188px, #1790BD 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(187px,#ffffff), color-stop(188px,#74B3D9), color-stop(100%,#1790BD)); /* Chrome,Safari4+ */
@@ -20,7 +20,6 @@ header {
   height: 145px;
   margin-bottom: 20px;
 }
-
 #content {
   background-color: #fff;
   border-radius: 8px;
@@ -47,6 +46,11 @@ header {
   width: 170px;
   height: 110px;
   line-height: 100px !important;
+}
+#images {
+  overflow: scroll;
+  max-height: 780px;
+  margin-top: 60px;
 }
 /* Fixes for IE < 8 */
 @media screen\9 {

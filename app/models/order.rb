@@ -1,8 +1,8 @@
 class Order < ActiveRecord::Base
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images
-
-  validates :hospital, :department, :street_1, :zip, :city, :email, presence: true
+  validates :hospital, :department, :street_1, :zip, :city, presence: true
+  validates :email, presence: true, email: true
   validates_associated :images
 
   before_create :generate_security_key

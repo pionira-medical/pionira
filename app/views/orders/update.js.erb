@@ -1,10 +1,11 @@
 <% if @order.errors.any? -%>
-  <% @order.errors.each do |error| %>
-    $("#order_email").parents(".form-group").addClass("has-error");
-    $("#order_email").next().text("<%= t("orders.sign_in.email_error") %>");
+  <% @order.errors.messages.each do |field, msg| %>
+    $("#order_<%= field %>").parents(".form-group").addClass("has-error");
+    $("#order_<%= field %>").next().text("<%= msg %>");
   <% end %> 
 <% else -%>
   $('#orderForm').modal('hide').on('hidden.bs.modal', function() {
-	$("#orderDetails").html("<%= escape_javascript( render(:partial => "orders/show/details") ) %>")
+    $("#orderDetails").html("<%= escape_javascript( render(:partial => "orders/show/details") ) %>");
+    $("#orderForm").replaceWith("<%= escape_javascript( render(:partial => "orders/show/form") ) %>");
   });
 <% end -%>
