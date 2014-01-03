@@ -1,9 +1,9 @@
 Pionira::Application.routes.draw do
 
-  resources :orders, only: [:index, :show, :update, :destroy] do
-    resources :images, only: [:create, :destroy]
+  resources :orders, path: 'auftrag', only: [:index, :show, :update, :destroy] do
+    resources :images, path: 'daten', only: [:create, :destroy]
     member do
-      get 'sign_in'
+      get 'sign_in', path: 'anmelden'
     end
     collection do
       post 'authenticate'
