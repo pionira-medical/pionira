@@ -1,7 +1,7 @@
 <% if @order.errors.any? -%>
   <% @order.errors.messages.each do |field, msg| %>
     $("#order_<%= field %>").parents(".form-group").addClass("has-error");
-    $("#order_<%= field %>").next().text("<%= msg %>");
+    $("#order_<%= field %>").next().text("<%= msg.first.html_safe %>");
   <% end %> 
 <% else -%>
   $('#orderForm').modal('hide').on('hidden.bs.modal', function() {

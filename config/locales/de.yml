@@ -25,8 +25,8 @@ de:
       last_name_label: "Nachname"
       last_name_placeholder: "Mustermann"
       gender_label: "Anrede / Titel"
-      title_label: ""
-      title_placeholder: "Dr. Prof."
+      dr_title_label: ""
+      dr_title_placeholder: "Dr. Prof."
       submit: "Anmelden"
     authenticate:
       signed_in: "Erfolgreich angemeldet"

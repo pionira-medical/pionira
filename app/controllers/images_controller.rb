@@ -11,4 +11,8 @@ class ImagesController < ApplicationController
       end
     end
   end
+
+  def destroy
+    Order.find(params[:order_id]).images.delete_all
+  end
 end

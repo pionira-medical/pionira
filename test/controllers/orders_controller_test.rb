@@ -3,10 +3,10 @@ require 'test_helper'
 class OrdersControllerTest < ActionController::TestCase
 
   test "should route to orders sign_in or show" do
-    assert_routing '/orders/1', {controller: "orders", action: "show", id: "1"}
-    assert_routing '/orders', {controller: "orders", action: "sign_in"}
-    assert_routing '/orders/1/sign_in', {controller: "orders", action: "sign_in", id: "1"}
-    assert_routing({method: 'post', path: '/orders/authenticate'}, {controller: "orders", action: "authenticate"})
+    assert_routing '/auftrag/1', {controller: "orders", action: "show", id: "1"}
+    assert_routing '/auftrag', {controller: "orders", action: "sign_in"}
+    assert_routing '/auftrag/1/sign_in', {controller: "orders", action: "sign_in", id: "1"}
+    assert_routing({method: 'post', path: '/auftrag/authenticate'}, {controller: "orders", action: "authenticate"})
   end
 
   test "should display sign_in page in success and error cases" do

@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Die Neusten Aufträge" do
+        panel "Die neuesten Aufträge" do
           ul do
             Order.last(5).map do |order|
               li link_to("#{order.hospital}, #{order.city}", admin_order_path(order))
@@ -22,12 +22,15 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
+      column do
+        panel "Nächste Auslieferungen" do
+          ul do
+            Order.where("delivered_at < '#{DateTime.now.to_s}'").limit(5).order('delivered_at asc').map do |order|
+              li link_to("#{l(order.delivered_at, format: :long)}: #{order.hospital}, #{order.city}", admin_order_path(order))
+            end
+          end
+        end
+      end
     end
-  end # content
+  end
 end
