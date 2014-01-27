@@ -3,7 +3,7 @@
 $(document).ready(function () {
     $("#uploader").fineUploader({
         request: {
-            endpoint: '/auftrag/'+$('#order_id').val()+'/daten',
+            endpoint: '/'+$('#order_id').val()+'/daten',
             params: {
                 authenticity_token: $('meta[name=csrf-token]').attr('content')
             }
