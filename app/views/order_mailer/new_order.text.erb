@@ -1,11 +1,12 @@
 Sehr <%= @order.gender == 'Herr' ? 'geehrter' : 'geehrte' %> <%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 
-der Auftrag für eine BoneForm bei Pionira Medical GmbH haben wir erfolgreich angelegt.
-Für die Übertragung der Patientendaten melden Sie sich bitte mit dem Sicherheitsschlüssel auf unserer Auftragsseite an.
+vielen Dank für Ihren Auftrag.
+Für die Übertragung der Patientendaten melden Sie sich bitte mit der Auftragsnummer von PIONIRA Medical und dem Sicherheitsschlüssel auf unserer Auftragsseite an. Den Link auf unsere Auftragsseite erhalten Sie mit dieser eMail.
 
 + Ihre Auftragsseite
 ---------------------
 Adresse: <%= sign_in_order_url(@order) %>
+Auftragsnummer PIONIRA Medical: 8
 Sicherheitsschlüssel: <%= @order.security_key %>
 
 
@@ -15,7 +16,7 @@ Auftragsnummer: <%= @order.id %>
 Behandelnder Arzt: <%= @order.gender %> <%= @order.dr_title %> <%= @order.last_name %>
 E-Mail Adresse: <%= @order.email %>
 Telefon: <%= @order.phone %>
-Referenznummer: <%= @order.reference %>
+KH Referenznummer: <%= @order.reference %>
 
 
 + Lieferadresse
