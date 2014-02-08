@@ -33,8 +33,9 @@ $(document).ready(function () {
           $("#uploadComplete").modal('show');
         } else {
           var progress = filesUploaded / (filesToUpload / 100)
-          $("#uploadProgress .progress-bar").css('width', progress+'%')
-          $("#uploadProgress .sr-only").text(progress+'% abgeschlossen')
+          if (progress > 15) {
+            $("#uploadProgress .progress-bar").css('width', progress+'%');
+          }
         }
     });
 });
