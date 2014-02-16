@@ -1,8 +1,12 @@
 Pionira::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :orders, path: '', only: [:index, :show, :update, :destroy] do
     resources :images, path: 'daten', only: [:create]
     member do
       get 'sign_in', path: 'anmelden'
+      get 'download'
       delete 'daten'
     end
     collection do
@@ -10,9 +14,6 @@ Pionira::Application.routes.draw do
       post 'request_security_key'
     end
   end
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

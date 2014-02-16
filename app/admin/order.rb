@@ -30,11 +30,13 @@ ActiveAdmin.register Order do
       row :security_key
       row :delivered_at
     end
-    table_for order.images do
-      column "Image" do |i| image_tag(i.file.url(:thumb)) end
-      column "Size" do |i| number_to_human_size(i.file_file_size) end
-      column "Type" do |i| i.file_content_type end
-      column "Created At" do |i| i.created_at end
+    panel(link_to 'Download all Images as ZIP', download_order_path(order)) do
+      table_for order.images do
+        column "Image" do |i| link_to(i.file.url, i.file.url) end
+        column "Size" do |i| number_to_human_size(i.file_file_size) end
+        column "Type" do |i| i.file_content_type end
+        column "Created At" do |i| i.created_at end
+      end
     end
     active_admin_comments
   end
@@ -57,11 +59,6 @@ ActiveAdmin.register Order do
       f.input :reference
       f.input :security_key
       f.input :delivered_at
-    end
-    f.inputs do
-      f.has_many :images do |ff|
-        ff.input :file, :as => :file, :hint => f.template.image_tag(ff.object.file.url(:thumb))
-      end
     end
     f.actions
   end

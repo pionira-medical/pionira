@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
   include OrdersHelper
+  require 'zip'
+
   before_filter :redirect_if_not_authenticated, only: [:show, :update]
   before_filter :redirect_if_authenticated, only: [:sign_in]
 
@@ -19,6 +21,21 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find_by(id: session[:order_id], security_key: session[:order_security_key])
     @order.update(order_params)
+  end
+
+  def download
+    @order = Order.find(params[:id])
+    zipfile_name = "#{Rails.root.join("public/system/archives").to_s}/pionira-order_#{@order.id}.zip"
+
+    index = 1
+    Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+      @order.images.each do |image|
+        filename_suffix = "%03d" % index
+        zipfile.add("pionira-order_#{@order.id}-#{filename_suffix}", image.file.path)
+        index += 1
+      end
+    end
+    send_file zipfile_name, type: 'application/zip'
   end
 
   def sign_in
