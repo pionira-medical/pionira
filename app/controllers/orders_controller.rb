@@ -38,6 +38,12 @@ class OrdersController < ApplicationController
     send_file zipfile_name, type: 'application/zip'
   end
 
+  def destroy_images
+    order = Order.find_by(id: session[:order_id], security_key: session[:order_security_key])
+    order.images.delete_all unless order.blank?
+    redirect_to({action: :show, id: order.id})
+  end
+
   def sign_in
     render action: :index
   end
