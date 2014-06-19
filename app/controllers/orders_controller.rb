@@ -23,6 +23,12 @@ class OrdersController < ApplicationController
     @order.update(order_params)
   end
 
+  def files_uploaded
+    order = Order.find_by(id: session[:order_id], security_key: session[:order_security_key])
+    OrderMailer.files_uploaded(order).deliver
+    redirect_to({action: :show, id: order.id})
+  end
+
   def download
     @order = Order.find(params[:id])
     zipfile_name = "#{Rails.root.join("public/system/archives").to_s}/pionira-order_#{@order.id}.zip"

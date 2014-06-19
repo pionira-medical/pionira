@@ -16,7 +16,7 @@
       </div>
       <div class="modal-body">
         <button type="button" class="btn btn-primary col-sm-5" data-dismiss="modal">Weitere Dateien hochladen</button>
-        <button type="button" class="btn btn-success col-sm-5 col-md-offset-2" data-dismiss="modal">Daten versenden</button>
+        <%= link_to 'Daten versenden', files_uploaded_order_url, :method => :post, :class => 'btn btn-success col-sm-5 col-md-offset-2' %>
         <div class="clearfix"></div>
       </div>
     <% end %>

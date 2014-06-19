@@ -6,7 +6,7 @@ Für die Übertragung der Patientendaten melden Sie sich bitte mit der Auftragsn
 + Ihre Auftragsseite
 ---------------------
 Adresse: <%= sign_in_order_url(@order) %>
-Auftragsnummer PIONIRA Medical: 8
+Auftragsnummer PIONIRA Medical: <%= @order.id %>
 Sicherheitsschlüssel: <%= @order.security_key %>
 
 

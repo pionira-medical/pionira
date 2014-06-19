@@ -7,6 +7,7 @@ Pionira::Application.routes.draw do
     member do
       get 'sign_in', path: 'anmelden'
       get 'download'
+      post 'files_uploaded'
       delete 'destroy_images'
     end
     collection do
